@@ -1,0 +1,24 @@
+# 一元二次方程ax²+bx+c=0的求解，要求程序输入任意a,b,c值后，程序能判断输出有解无解，有解输出x值
+import math
+
+
+def quad(a: float, b: float, c: float):
+    d = b * b - 4 * a * c
+    if d < 0:
+        return '无实根'
+    elif d == 0:
+        x = -b / (2 * a)
+        return x
+    else:
+        x1 = (-b + math.sqrt(d)) / (2 * a)
+        x2 = (-b - math.sqrt(d)) / (2 * a)
+        return x1, x2
+
+
+a = float(input("请输入a："))
+while a == 0:
+    print("一元二次方程a不能为零请重新输入")
+    a = float(input("请输入a："))
+b = float(input("请输入b："))
+c = float(input("请输入c："))
+print(quad(a, b, c))
